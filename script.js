@@ -37,8 +37,6 @@ function mostrarVistaPrevia() {
             let img = document.createElement("img");
             img.src = `images/${letra}.png`; // Asegúrate de tener imágenes en /images/
             img.alt = letra;
-            img.style.width = "50px"; // Tamaño ajustable
-            img.style.height = "50px";
             fila.appendChild(img);
         }
 
