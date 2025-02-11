@@ -8,12 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Generador de Pistas - Dinámica día 1</h2>
-    <input type="text" id="inputFrase" placeholder="Escribe una frase" maxlength="20">
-    <button onclick="agregarFrase()">Agregar frase al PDF</button>
-    <button onclick="generarPDF()">Generar PDF</button>
+    <h1 id="title">Dinámica día 1</h1>
+    <h2 id="name-web">Generador de Pistas</h2>
 
-    <div id="preview" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;"></div>
+    <div id="input-section">
+        <input type="text" id="inputFrase" placeholder="Escribe una frase" maxlength="20">
+        <div id="input-controls">
+            <button type="button" id="add-phrase">Agregar frase al PDF</button>
+            <button type="button" id="generate-pdf">Generar PDF</button>
+        </div>  
+    </div>
+    <div id="preview"></div>
 
     <script src="script.js"></script>
 </body>
