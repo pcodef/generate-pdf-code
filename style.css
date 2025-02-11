@@ -1,0 +1,9 @@
+.row-code {
+    display: flex;
+    gap: 5px;
+    margin: 1px;
+}
+
+.row-code:hover{
+    border: solid 2px blue;
+}
