@@ -1,4 +1,10 @@
 
+body {
+    position: fixed;
+    border: solid 1px black;
+    width: 100%;
+}
+
 #title {
     text-align: center;
 }
@@ -46,8 +52,10 @@ button:hover {
     display: flex;
     flex-direction: column; 
     gap: 20px;
-    width: 540px;
+    width: 630px;
+    height: calc(100vh - 450px);
     margin: 60px auto;
+    overflow-y: scroll;
 }
 
 .row-code {
@@ -65,4 +73,16 @@ button:hover {
 img {
     width: 25px;
     height: auto;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    opacity: 1; /* Visible desde el principio */
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10; /* Asegura que el tooltip esté por encima de otros elementos */
 }
