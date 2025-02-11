@@ -31,16 +31,40 @@ function mostrarVistaPrevia() {
 
     frases.forEach(frase => {
         let fila = document.createElement("div");
-        fila.classList.add('row-code');  
+        fila.classList.add('row-code');
+        fila.dataset.tooltip = frase; 
 
         for (let letra of frase) {
             let img = document.createElement("img");
             img.src = `images/${letra}.png`; // Asegúrate de tener imágenes en /images/
-            img.alt = letra;
+            img.dataset.tooltip = frase; 
             fila.appendChild(img);
         }
 
         preview.appendChild(fila);
+
+        // Eventos para mostrar/ocultar el tooltip (adaptado del ejemplo anterior)
+        fila.addEventListener('mouseover', (event) => {
+            const tooltip = document.createElement('div'); // Crear el tooltip dinámicamente
+            tooltip.classList.add('tooltip');
+            tooltip.textContent = event.target.dataset.tooltip; // Obtener el valor del data-tooltip
+
+            // Posicionar el tooltip (ajusta los valores según necesites)
+            const rect = event.target.getBoundingClientRect();
+            tooltip.style.left = rect.right + 10 + 'px'; // Ajusta el desplazamiento horizontal
+            tooltip.style.top = rect.top + 'px';       // Ajusta el desplazamiento vertical
+            document.body.appendChild(tooltip); // Añadir al body para que se muestre sobre todo
+
+            // Almacenar el tooltip en el elemento fila para poder eliminarlo luego
+            fila.tooltipElement = tooltip;
+        });
+
+        fila.addEventListener('mouseout', () => {
+            if (fila.tooltipElement) {
+                fila.tooltipElement.remove(); // Eliminar el tooltip
+                delete fila.tooltipElement; // Limpiar la referencia
+            }
+        });
     });
 }
 
