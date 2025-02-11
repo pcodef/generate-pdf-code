@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Generador de Pistas - Dinámica día 1</h2>
+    <h1 id="title">Dinámica día 1</h1>
+    <h2 id="name-web">Generador de Pistas</h2>
     <input type="text" id="inputFrase" placeholder="Escribe una frase" maxlength="20">
-    <button onclick="agregarFrase()">Agregar frase al PDF</button>
-    <button onclick="generarPDF()">Generar PDF</button>
+    <button type="button" id="add-phrase">Agregar frase al PDF</button>
+    <button type="button" id="generate-pdf">Generar PDF</button>
 
     <div id="preview" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;"></div>
 
