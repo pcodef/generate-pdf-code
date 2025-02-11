@@ -67,7 +67,7 @@ async function generarPDF() {
     
     // Valores iniciales para la primera hoja
     const xInicio = 15;
-    const yInicio = 25;
+    const yInicio = 35;
     
     let x = xInicio;
     let y = yInicio;
@@ -77,11 +77,21 @@ async function generarPDF() {
         
         x = xInicio;
 
-        if (contadorFrases === 13) { 
+        if (contadorFrases === 12) { 
             // Si ya se imprimieron 13 frases, creamos una nueva página
             pdf.addPage();
             y = yInicio;
             contadorFrases = 0; // Reiniciar el contador
+
+            await new Promise((resolve) => {
+                // añadir logotipo 
+                let imgLogo = new Image();
+                imgLogo.src = `images/macogop.png`;
+                imgLogo.onload = function () {
+                    pdf.addImage(imgLogo, 'PNG', 163, 10, 34.2, 10.75);
+                    resolve();
+                }
+            })
         }
 
         for (const letra of frase) {
