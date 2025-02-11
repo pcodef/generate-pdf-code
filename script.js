@@ -55,12 +55,15 @@ async function generarPDF() {
     const { jsPDF } = window.jspdf;
     let pdf = new jsPDF();
 
-    // añadir logotipo 
-    let imgLogo = new Image();
-    imgLogo.src = `images/macogop.png`;
-    imgLogo.onload = function () {
-        pdf.addImage(imgLogo, 'PNG', 163, 10, 34.2, 10.75);
-    }
+    await new Promise((resolve) => {
+        // añadir logotipo 
+        let imgLogo = new Image();
+        imgLogo.src = `images/macogop.png`;
+        imgLogo.onload = function () {
+            pdf.addImage(imgLogo, 'PNG', 163, 10, 34.2, 10.75);
+            resolve();
+        }
+    })
     
     // Valores iniciales para la primera hoja
     const xInicio = 15;
